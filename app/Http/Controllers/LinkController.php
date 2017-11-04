@@ -14,7 +14,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        //
+        return Link::latest()->get();
     }
 
     /**
@@ -46,7 +46,7 @@ class LinkController extends Controller
      */
     public function show(Link $link)
     {
-        //
+        return $link;
     }
 
     /**
