@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+import 'angular';
 
 window.Vue = require('vue');
 
@@ -15,8 +16,18 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });
+
+var app = angular.module('LaravelCRUD', []
+    , ['$httpProvider', function ($httpProvider) {
+        $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
+    }]);
+ 
+app.controller('LinkController', ['$scope', '$http', function ($scope, $http) {
+ 
+}]);
+
